@@ -3,12 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Halaman Profil Purbalingga</title>
+    <meta name="viewport" content="width=1024">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+    <!-- Motif Ornamen Kanan & Kiri -->
+    <div class="side-ornament left"></div>
+    <div class="side-ornament right"></div>
+    <button id="toTop" title="Kembali ke atas">&#8679;</button>
     <header>
         <div class="banner">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Lambang_Kabupaten_Purbalingga.png" alt="Lambang Purbalingga" class="logo"/>
@@ -16,33 +19,38 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#LokasiGeografi"><span class="material-icons">location_on</span> Lokasi</a></li>
-                <li><a href="#Sejarah"><span class="material-icons">history</span> Sejarah</a></li>
-                <li><a href="#Ekonomi"><span class="material-icons">trending_up</span> Ekonomi</a></li>
-                <li><a href="#Budaya"><span class="material-icons">theater_comedy</span> Budaya</a></li>
-                <li><a href="#Wisata"><span class="material-icons">park</span> Wisata</a></li>
-                <li><a href="#Kuliner"><span class="material-icons">restaurant</span> Kuliner</a></li>
-                <li><a href="#Tokoh"><span class="material-icons">person</span> Tokoh</a></li>
-                <li><a href="#Galeri"><span class="material-icons">photo_camera</span> Galeri</a></li>
-                <li><a href="#Event"><span class="material-icons">event</span> Event</a></li>
+                <li><a href="#LokasiGeografi" data-tooltip="Lokasi Purbalingga"><span class="material-icons">location_on</span></a></li>
+                <li><a href="#Sejarah" data-tooltip="Sejarah Purbalingga"><span class="material-icons">history</span></a></li>
+                <li><a href="#Ekonomi" data-tooltip="Ekonomi Lokal"><span class="material-icons">trending_up</span></a></li>
+                <li><a href="#Budaya" data-tooltip="Budaya Daerah"><span class="material-icons">theater_comedy</span></a></li>
+                <li><a href="#Wisata" data-tooltip="Wisata Purbalingga"><span class="material-icons">park</span></a></li>
+                <li><a href="#Kuliner" data-tooltip="Kuliner Khas"><span class="material-icons">restaurant</span></a></li>
+                <li><a href="#Tokoh" data-tooltip="Tokoh Terkenal"><span class="material-icons">person</span></a></li>
+                <li><a href="#Galeri" data-tooltip="Galeri Foto"><span class="material-icons">photo_camera</span></a></li>
+                <li><a href="#Event" data-tooltip="Event"><span class="material-icons">event</span></a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Kota Purbalingga</h1>
-        <section id="LokasiGeografi">
+        <section id="LokasiGeografi" class="fade-in">
             <h2>Lokasi & Geografi</h2>
             <p>Purbalingga terletak di Provinsi Jawa Tengah, Indonesia. Wilayahnya didominasi dataran tinggi dengan udara sejuk, dikelilingi pegunungan seperti Gunung Slamet.</p>
         </section>
-        <section id="Sejarah">
+        <section id="Sejarah" class="fade-in">
             <h2>Sejarah</h2>
-            <p>Purbalingga memiliki sejarah panjang mulai dari kerajaan kuno, masa kolonial, hingga era kemerdekaan. Banyak situs Hindu-Budha dan peninggalan kolonial di sini.</p>
+            <div class="accordion">
+                <button class="accordion-btn">Lihat Sejarah Singkat</button>
+                <div class="accordion-content">
+                    <p>Purbalingga memiliki sejarah panjang mulai dari kerajaan kuno, masa kolonial, hingga era kemerdekaan. Banyak situs Hindu-Budha dan peninggalan kolonial di sini.</p>
+                </div>
+            </div>
         </section>
-        <section id="Ekonomi">
+        <section id="Ekonomi" class="fade-in">
             <h2>Ekonomi</h2>
             <p>Ekonomi didominasi pertanian (beras, sayur, kelapa), industri kecil seperti kerajinan rambut palsu, serta UMKM makanan khas seperti keripik tempe dan mendoan.</p>
         </section>
-        <section id="Budaya">
+        <section id="Budaya" class="fade-in">
             <h2>Budaya</h2>
             <ul>
                 <li>Wayang kulit Purbalingga</li>
@@ -51,7 +59,7 @@
             </ul>
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Festival Grebeg Sudimoro" width="100%">
         </section>
-        <section id="Wisata">
+        <section id="Wisata" class="fade-in">
             <h2>Wisata Alam</h2>
             <div class="card-container">
                 <div class="card">
@@ -71,7 +79,7 @@
                 </div>
             </div>
         </section>
-        <section id="Kuliner">
+        <section id="Kuliner" class="fade-in">
             <h2>Kuliner Khas</h2>
             <ol>
                 <li><b>Tempe Mendoan</b> – Tempe goreng tipis dengan tepung, dimakan hangat dengan sambal kecap.</li>
@@ -80,22 +88,26 @@
                 <li><b>Es Dawet</b> – Minuman segar berbahan tepung beras dan santan.</li>
             </ol>
         </section>
-        <section id="Tokoh">
+        <section id="Tokoh" class="fade-in">
             <h2>Tokoh Terkenal</h2>
             <ul>
                 <li><b>Soedirman</b> – Jenderal besar Indonesia, lahir di Bodas Karangjati, Purbalingga.</li>
                 <li><b>Mochammad Iriawan (Iwan Bule)</b> – Tokoh sepakbola nasional.</li>
             </ul>
         </section>
-        <section id="Galeri">
+        <section id="Galeri" class="fade-in">
             <h2>Galeri Foto</h2>
-            <div class="gallery">
-                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Owabong" />
-                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="Curug" />
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Curug Nangka" />
+            <div class="carousel">
+                <button class="carousel-btn left">&#10094;</button>
+                <div class="carousel-track">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Owabong" />
+                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="Curug" />
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Curug Nangka" />
+                </div>
+                <button class="carousel-btn right">&#10095;</button>
             </div>
         </section>
-        <section id="Event">
+        <section id="Event" class="fade-in">
             <h2>Event Tahunan</h2>
             <ul>
                 <li>Festival Purbalingga (Agustus)</li>
@@ -103,14 +115,19 @@
                 <li>Purbalingga Expo</li>
             </ul>
         </section>
-        <section id="FaktaUnik">
+        <section id="FaktaUnik" class="fade-in">
             <h2>Fakta Unik</h2>
-            <ul>
-                <li>Purbalingga adalah pusat industri bulu mata palsu terbesar di Asia Tenggara.</li>
-                <li>Merupakan salah satu daerah penghasil kelapa terbesar di Jawa Tengah.</li>
-            </ul>
+            <div class="accordion">
+                <button class="accordion-btn">Buka Fakta Unik</button>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Purbalingga adalah pusat industri bulu mata palsu terbesar di Asia Tenggara.</li>
+                        <li>Merupakan salah satu daerah penghasil kelapa terbesar di Jawa Tengah.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        <section id="Kontak">
+        <section id="Kontak" class="fade-in">
             <h2>Kontak & Lokasi</h2>
             <p>Alamat: SMKN 1 Purbalingga, Jl. Letjend S. Parman No. 53, Purbalingga, Jawa Tengah</p>
             <iframe src="https://www.google.com/maps?q=SMKN+1+Purbalingga&output=embed"
@@ -127,5 +144,6 @@
     <footer>
         <p>&copy; 2024 Kota Purbalingga. Semua hak dilindungi.</p>
     </footer>
+    <script src="main.js"></script>
 </body>
 </html>
