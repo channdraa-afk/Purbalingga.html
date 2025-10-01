@@ -2,23 +2,24 @@
 
 body {
     font-family: 'Montserrat', Arial, sans-serif;
-    background: linear-gradient(135deg, #fffaf6 0%, #f6f3ed 100%);
+    background: linear-gradient(120deg, #f8f5ed 0%, #f5e6c7 55%, #f8f5ed 100%);
     margin: 0;
     padding: 0;
     color: #2d383a;
-    position: relative;
     min-height: 100vh;
+    position: relative;
 }
 
+/* Ornamen batik transparan di kanan kiri */
 .batik-ornament {
     position: fixed;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     width: 110px;
     background: url('https://svgshare.com/i/13f2.svg') center repeat-y;
-    opacity: 0.14;
+    opacity: 0.19;
     z-index: 0;
     pointer-events: none;
+    mix-blend-mode: luminosity;
 }
 .batik-ornament.left { left: 0; }
 .batik-ornament.right { right: 0; transform: scaleX(-1);}
@@ -27,10 +28,10 @@ body {
 }
 
 header {
-    background: linear-gradient(90deg, #fff7e7 70%, #e2f6f5 100%);
+    background: linear-gradient(90deg, #fff7e7 70%, #ede5d0 100%);
     color: #5f604d;
     padding: 30px 0 20px 0;
-    box-shadow: 0 3px 24px rgba(198,184,132,0.13);
+    box-shadow: 0 3px 24px rgba(198,184,132,0.11);
     border-bottom: 2px solid #f3e3c3;
     z-index: 2;
     position: relative;
@@ -88,7 +89,7 @@ nav li a {
     border: 1.2px solid #eedaa2;
 }
 nav li a:hover, nav li a:focus {
-    background: linear-gradient(90deg,#fff3db 55%, #e2f6f5 100%);
+    background: linear-gradient(90deg,#fff3db 55%, #ede5d0 100%);
     color: #795e18;
     box-shadow: 0 4px 14px rgba(233,205,144,0.13);
     border-color: #b3a26b;
@@ -131,9 +132,8 @@ main > h1 {
     text-shadow: 1px 2px 7px #f1e6c9;
 }
 
-/* Premium Card Style */
 .card {
-    background: linear-gradient(120deg,#fffbe7 72%, #e2f6f5 130%);
+    background: linear-gradient(120deg,#fffbe7 72%, #ede5d0 130%);
     border-radius: 22px;
     box-shadow: 0 6px 36px rgba(186,163,81,0.13), 0 1.5px 7px #eedaa2;
     margin-bottom: 38px;
@@ -149,7 +149,6 @@ main > h1 {
     border-color: #b3a26b;
 }
 
-/* Flex untuk card wisata */
 .card-flex {
     display: flex;
     gap: 28px;
@@ -266,7 +265,7 @@ img {
 
 .accordion { margin: 12px 0; }
 .accordion-btn {
-    background: linear-gradient(90deg,#eedaa2 75%, #e2f6f5 100%);
+    background: linear-gradient(90deg,#eedaa2 75%, #ede5d0 100%);
     color: #4a755a;
     font-weight: 700;
     padding: 13px 21px;
