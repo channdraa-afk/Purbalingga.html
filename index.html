@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- Motif Ornamen Kanan & Kiri -->
-    <div class="side-ornament left"></div>
-    <div class="side-ornament right"></div>
+    <!-- Ornamen Batik Kanan & Kiri -->
+    <div class="batik-ornament left"></div>
+    <div class="batik-ornament right"></div>
     <button id="toTop" title="Kembali ke atas">&#8679;</button>
     <header>
         <div class="banner">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Lambang_Kabupaten_Purbalingga.png" alt="Lambang Purbalingga" class="logo"/>
-            <h1>Selamat Datang di Kota Purbalingga</h1>
+            <h1>Selamat Datang di Kabupaten Purbalingga</h1>
         </div>
         <nav>
             <ul>
@@ -32,12 +32,12 @@
         </nav>
     </header>
     <main>
-        <h1>Kota Purbalingga</h1>
-        <section id="LokasiGeografi" class="fade-in">
+        <h1>Kabupaten Purbalingga</h1>
+        <section id="LokasiGeografi" class="fade-in card">
             <h2>Lokasi & Geografi</h2>
             <p>Purbalingga terletak di Provinsi Jawa Tengah, Indonesia. Wilayahnya didominasi dataran tinggi dengan udara sejuk, dikelilingi pegunungan seperti Gunung Slamet.</p>
         </section>
-        <section id="Sejarah" class="fade-in">
+        <section id="Sejarah" class="fade-in card">
             <h2>Sejarah</h2>
             <div class="accordion">
                 <button class="accordion-btn">Lihat Sejarah Singkat</button>
@@ -46,11 +46,11 @@
                 </div>
             </div>
         </section>
-        <section id="Ekonomi" class="fade-in">
+        <section id="Ekonomi" class="fade-in card">
             <h2>Ekonomi</h2>
             <p>Ekonomi didominasi pertanian (beras, sayur, kelapa), industri kecil seperti kerajinan rambut palsu, serta UMKM makanan khas seperti keripik tempe dan mendoan.</p>
         </section>
-        <section id="Budaya" class="fade-in">
+        <section id="Budaya" class="fade-in card">
             <h2>Budaya</h2>
             <ul>
                 <li>Wayang kulit Purbalingga</li>
@@ -59,27 +59,27 @@
             </ul>
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Festival Grebeg Sudimoro" width="100%">
         </section>
-        <section id="Wisata" class="fade-in">
+        <section id="Wisata" class="fade-in card">
             <h2>Wisata Alam</h2>
-            <div class="card-container">
-                <div class="card">
+            <div class="card-flex">
+                <div class="card-inner">
                     <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Gunung Slamet" />
                     <h3>Gunung Slamet</h3>
                     <p>Pendakian dan wisata alam dengan pemandangan spektakuler.</p>
                 </div>
-                <div class="card">
+                <div class="card-inner">
                     <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Curug Silawe" />
                     <h3>Curug Silawe</h3>
                     <p>Air terjun alami di kaki Gunung Slamet, cocok untuk rekreasi keluarga.</p>
                 </div>
-                <div class="card">
+                <div class="card-inner">
                     <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Owabong Waterpark" />
                     <h3>Owabong Waterpark</h3>
-                    <p>Destinasi wisata air terbesar di Purbalingga, cocok untuk keluarga.</p>
+                    <p>Wisata air terbesar di Purbalingga, cocok untuk keluarga.</p>
                 </div>
             </div>
         </section>
-        <section id="Kuliner" class="fade-in">
+        <section id="Kuliner" class="fade-in card">
             <h2>Kuliner Khas</h2>
             <ol>
                 <li><b>Tempe Mendoan</b> – Tempe goreng tipis dengan tepung, dimakan hangat dengan sambal kecap.</li>
@@ -88,14 +88,14 @@
                 <li><b>Es Dawet</b> – Minuman segar berbahan tepung beras dan santan.</li>
             </ol>
         </section>
-        <section id="Tokoh" class="fade-in">
+        <section id="Tokoh" class="fade-in card">
             <h2>Tokoh Terkenal</h2>
             <ul>
                 <li><b>Soedirman</b> – Jenderal besar Indonesia, lahir di Bodas Karangjati, Purbalingga.</li>
                 <li><b>Mochammad Iriawan (Iwan Bule)</b> – Tokoh sepakbola nasional.</li>
             </ul>
         </section>
-        <section id="Galeri" class="fade-in">
+        <section id="Galeri" class="fade-in card">
             <h2>Galeri Foto</h2>
             <div class="carousel">
                 <button class="carousel-btn left">&#10094;</button>
@@ -107,7 +107,7 @@
                 <button class="carousel-btn right">&#10095;</button>
             </div>
         </section>
-        <section id="Event" class="fade-in">
+        <section id="Event" class="fade-in card">
             <h2>Event Tahunan</h2>
             <ul>
                 <li>Festival Purbalingga (Agustus)</li>
@@ -115,7 +115,7 @@
                 <li>Purbalingga Expo</li>
             </ul>
         </section>
-        <section id="FaktaUnik" class="fade-in">
+        <section id="FaktaUnik" class="fade-in card">
             <h2>Fakta Unik</h2>
             <div class="accordion">
                 <button class="accordion-btn">Buka Fakta Unik</button>
@@ -127,10 +127,10 @@
                 </div>
             </div>
         </section>
-        <section id="Kontak" class="fade-in">
+        <section id="Kontak" class="fade-in card">
             <h2>Kontak & Lokasi</h2>
-            <p>Alamat: SMKN 1 Purbalingga, Jl. Letjend S. Parman No. 53, Purbalingga, Jawa Tengah</p>
-            <iframe src="https://www.google.com/maps?q=SMKN+1+Purbalingga&output=embed"
+            <p>Alamat: Kabupaten Purbalingga, Jawa Tengah</p>
+            <iframe src="https://www.google.com/maps?q=Kabupaten+Purbalingga,+Jawa+Tengah&output=embed"
                 width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </section>
     </main>
@@ -142,7 +142,7 @@
         </ul>
     </aside>
     <footer>
-        <p>&copy; 2024 Kota Purbalingga. Semua hak dilindungi.</p>
+        <p>&copy; 2024 Kabupaten Purbalingga. Semua hak dilindungi.</p>
     </footer>
     <script src="main.js"></script>
 </body>
