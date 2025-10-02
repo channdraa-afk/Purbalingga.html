@@ -7,7 +7,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.13 });
 faders.forEach(f => observer.observe(f));
 
-// Carousel Galeri Foto aesthetic
+// Carousel Galeri Foto aesthetic (tidak berubah)
 const gallery = document.querySelector('.carousel-gallery');
 if (gallery) {
     const track = gallery.querySelector('.carousel-track');
@@ -16,8 +16,6 @@ if (gallery) {
     const btnRight = gallery.querySelector('.carousel-btn.right');
     const indicators = gallery.querySelector('.carousel-indicators');
     let idx = 0;
-
-    // Indikator bulat
     indicators.innerHTML = '';
     images.forEach((_, i) => {
         let dot = document.createElement('div');
@@ -25,14 +23,12 @@ if (gallery) {
         dot.onclick = () => { idx = i; updateGallery(); };
         indicators.appendChild(dot);
     });
-
     function updateGallery() {
         track.style.transform = `translateX(-${idx * 100}%)`;
         indicators.querySelectorAll('.indicator').forEach((dot, i) =>
             dot.classList.toggle('active', i === idx)
         );
     }
-
     btnLeft.onclick = () => {
         idx = (idx - 1 + images.length) % images.length;
         updateGallery();
@@ -41,7 +37,6 @@ if (gallery) {
         idx = (idx + 1) % images.length;
         updateGallery();
     };
-    // Swipe support (biar bisa geser pakai jari di HP)
     let startX = null;
     track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
     track.addEventListener('touchend', e => {
@@ -52,6 +47,44 @@ if (gallery) {
         startX = null;
     });
 }
+
+// Sticky nav shadow
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 10) nav.classList.add('sticky-shadow');
+    else nav.classList.remove('sticky-shadow');
+});
+
+// Smooth scroll & highlight menu aktif
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+function setActiveNavLink() {
+    let fromTop = window.scrollY + 120; // offset header
+    navLinks.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (
+            section &&
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+        ) {
+            navLinks.forEach(l=>l.classList.remove('active'));
+            link.classList.add('active');
+        }
+    });
+}
+window.addEventListener('scroll', setActiveNavLink);
+
+navLinks.forEach(a => {
+    a.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const el = document.getElementById(targetId);
+        if(el) {
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+            navLinks.forEach(l=>l.classList.remove('active'));
+            this.classList.add('active');
+        }
+    });
+});
 
 // Accordion (kalau masih ada)
 document.querySelectorAll('.accordion-btn').forEach(btn => {
