@@ -106,3 +106,40 @@ window.onscroll = () => {
   else toTop.style.display = 'none';
 };
 toTop.onclick = () => { window.scrollTo({top: 0, behavior: 'smooth'}); };
+// Sticky nav shadow biar berasa nempel
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 10) nav.classList.add('sticky-shadow');
+    else nav.classList.remove('sticky-shadow');
+});
+
+// Smooth scroll & highlight menu aktif
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+function setActiveNavLink() {
+    let fromTop = window.scrollY + 110; // offset header (kalau header-mu besar, bisa dinaikkan)
+    navLinks.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (
+            section &&
+            section.offsetTop <= fromTop &&
+            section.offsetTop + section.offsetHeight > fromTop
+        ) {
+            navLinks.forEach(l=>l.classList.remove('active'));
+            link.classList.add('active');
+        }
+    });
+}
+window.addEventListener('scroll', setActiveNavLink);
+
+navLinks.forEach(a => {
+    a.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const el = document.getElementById(targetId);
+        if(el) {
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+            navLinks.forEach(l=>l.classList.remove('active'));
+            this.classList.add('active');
+        }
+    });
+});
