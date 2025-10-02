@@ -404,3 +404,5 @@ footer {
     font-size: 1em;
     border-top: 1.2px solid #f3e3c3;
 }
+.fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+.fade-in.visible { opacity: 1 !important; transform: none !important; }
