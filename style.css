@@ -406,3 +406,5 @@ footer {
 }
 .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
 .fade-in.visible { opacity: 1 !important; transform: none !important; }
+.fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+.fade-in.visible { opacity: 1 !important; transform: none !important; }
