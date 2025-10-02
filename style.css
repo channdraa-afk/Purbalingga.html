@@ -365,3 +365,87 @@ footer {
     img, .carousel-track img { width: 98vw; height: auto; min-width: 0;}
     .card { padding: 17px 7vw 18px 7vw;}
 }
+.carousel-gallery {
+    position: relative;
+    width: 95%;
+    max-width: 520px;
+    margin: 0 auto 10px auto;
+    display: flex;
+    align-items: center;
+    background: #fffbe7;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(233,205,144,0.12);
+    border: 2px solid #eedaa2;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+    width: 100%;
+    height: 250px;
+    align-items: center;
+}
+
+.carousel-track img {
+    min-width: 100%;
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: #eee;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #eedaa2;
+    color: #4a755a;
+    border: none;
+    font-size: 2.2em;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    opacity: 0.86;
+    box-shadow: 0 1px 4px rgba(233,205,144,0.15);
+    transition: background .2s, color .2s, opacity .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-btn.left { left: 10px; }
+.carousel-btn.right { right: 10px; }
+.carousel-btn:hover { background: #f5e4c1; color: #b3a26b; opacity: 1; }
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 14px 0 8px 0;
+}
+
+.carousel-indicators .indicator {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #eedaa2;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background 0.25s;
+    opacity: 0.6;
+}
+.carousel-indicators .indicator.active {
+    background: #b3a26b;
+    opacity: 1;
+}
+
+@media (max-width: 700px) {
+    .carousel-gallery, .carousel-track img { height: 160px; }
+    .carousel-track { height: 160px; }
+    .carousel-btn { width: 35px; height: 35px; font-size: 1.4em;}
+}
