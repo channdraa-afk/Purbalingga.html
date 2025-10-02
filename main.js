@@ -1,4 +1,4 @@
-// Carousel Galeri Foto dengan indikator
+// Carousel Galeri Foto aesthetic
 const gallery = document.querySelector('.carousel-gallery');
 if (gallery) {
     const track = gallery.querySelector('.carousel-track');
@@ -8,7 +8,7 @@ if (gallery) {
     const indicators = gallery.querySelector('.carousel-indicators');
     let idx = 0;
 
-    // Buat indikator bulat
+    // Indikator bulat
     indicators.innerHTML = '';
     images.forEach((_, i) => {
         let dot = document.createElement('div');
@@ -32,6 +32,14 @@ if (gallery) {
         idx = (idx + 1) % images.length;
         updateGallery();
     };
+    // Swipe support (optional, biar bisa geser pakai tangan di HP)
+    let startX = null;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    track.addEventListener('touchend', e => {
+        if(startX === null) return;
+        let endX = e.changedTouches[0].clientX;
+        if(endX - startX > 50) btnLeft.onclick();
+        else if(startX - endX > 50) btnRight.onclick();
+        startX = null;
+    });
 }
-
-// Script lain (fade-in, accordion, scrollToTop) tetap sama seperti sebelumnya.
