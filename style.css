@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
-/* ====== STYLE LAMA KAMU (JANGAN DIUBAH) ====== */
 body {
     font-family: 'Montserrat', Arial, sans-serif;
     background: linear-gradient(120deg, #f8f5ed 0%, #f5e6c7 55%, #f8f5ed 100%);
@@ -27,41 +26,81 @@ body {
     .batik-ornament { display: none; }
 }
 
+/* Header sticky + flex logo fix */
 header {
-    background: linear-gradient(90deg, #fff7e7 70%, #ede5d0 100%);
-    color: #5f604d;
-    padding: 30px 0 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, #fffbe7 70%, #ede5d0 100%);
     box-shadow: 0 3px 24px rgba(198,184,132,0.11);
     border-bottom: 2px solid #f3e3c3;
-    z-index: 2;
-    position: relative;
+    padding: 0 0 20px 0;
 }
-
-.banner {
+.header-flex {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 22px;
+    position: relative;
+    gap: 30px;
+    padding: 23px 0 7px 0;
+}
+.logo-wrap {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    margin-left: 8vw;
 }
 .logo {
-    width: 65px;
-    height: 65px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    object-position: center;
     background: #fff;
-    border-radius: 100%;
-    padding: 6px;
-    box-shadow: 0 2px 11px rgba(0,0,0,0.08);
-    border: 2.5px solid #eedaa2;
+    border-radius: 50%;
+    box-shadow: 0 12px 38px rgba(186,163,81,0.17), 0 1.5px 7px #eedaa2;
+    border: 3.5px solid #eedaa2;
+    padding: 11px;
+    transition: transform 0.32s cubic-bezier(.4,0,.2,1), box-shadow 0.32s;
+    will-change: transform;
+    display: block;
 }
-
-header h1 {
+.logo:hover {
+    transform: scale(1.09) rotate(-5deg);
+    box-shadow: 0 16px 50px rgba(186,163,81,0.22), 0 2px 14px #eedaa2;
+}
+.header-flex h1 {
+    flex: 1;
     text-align: center;
-    margin: 0 0 12px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6em;
     font-weight: 700;
     letter-spacing: 1.1px;
-    font-size: 2.1em;
-    color: #2d383a;
+    color: #b39c63;
+    margin: 0;
+    z-index: 1;
+    text-shadow: 0 2px 10px #f3e3c3;
+    padding-right: 110px;
+}
+@media (max-width: 900px) {
+    .logo { width: 68px; height: 68px; padding: 6px;}
+    .logo-wrap { margin-left: 5vw;}
+    .header-flex { gap: 13px;}
+    .header-flex h1 { font-size: 1.3em; padding-right: 0;}
 }
 
+/* Navigation sticky + highlight */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: linear-gradient(90deg, #fffbe7 70%, #ede5d0 100%);
+    box-shadow: 0 3px 18px rgba(186,163,81,0.11);
+    transition: box-shadow .3s;
+}
+nav.sticky-shadow {
+    box-shadow: 0 6px 26px rgba(186,163,81,0.17);
+}
 nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -72,14 +111,13 @@ nav ul {
     padding: 0;
     z-index: 2;
 }
-
 nav li a {
     text-decoration: none;
     color: #3e7267;
     font-weight: 700;
     padding: 8px 9px;
     border-radius: 9px;
-    transition: background .25s, color .25s, box-shadow .3s;
+    transition: background .25s, color .25s, box-shadow .3s, transform .2s;
     background: #fffbe7;
     display: flex;
     align-items: center;
@@ -87,12 +125,28 @@ nav li a {
     font-size: 1.15em;
     box-shadow: 0 1px 3px rgba(173,186,147,0.07);
     border: 1.2px solid #eedaa2;
+    will-change: transform;
 }
 nav li a:hover, nav li a:focus {
     background: linear-gradient(90deg,#fff3db 55%, #ede5d0 100%);
     color: #795e18;
     box-shadow: 0 4px 14px rgba(233,205,144,0.13);
     border-color: #b3a26b;
+    transform: scale(1.13) rotate(-8deg);
+}
+nav li a.active {
+    color: #b39c63;
+    background: #f9eee0;
+    border-color: #b39c63;
+    box-shadow: 0 2px 12px #eedaa255;
+    animation: navicon-shake 0.36s cubic-bezier(.2,.8,.4,1.3);
+}
+@keyframes navicon-shake {
+    0% { transform: scale(1.13) rotate(-8deg);}
+    20% { transform: scale(1.18) rotate(5deg);}
+    37% { transform: scale(1.15) rotate(-6deg);}
+    55% { transform: scale(1.12) rotate(3deg);}
+    100% { transform: scale(1.13) rotate(-8deg);}
 }
 nav li a[data-tooltip]:hover::after {
     content: attr(data-tooltip);
@@ -112,7 +166,15 @@ nav li a[data-tooltip]:hover::after {
     font-size: 22px;
     margin-right: 0;
 }
+.sumber-icon {
+    color: #b39c63;
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-right: 7px;
+    margin-top: -2px;
+}
 
+/* Konten, card, carousel, dsb... (tetap style lama, tidak diubah) */
 main {
     max-width: 950px;
     margin: 50px auto 0 auto;
@@ -122,7 +184,6 @@ main {
     z-index: 1;
     position: relative;
 }
-
 main > h1 {
     text-align: center;
     font-size: 2em;
@@ -131,24 +192,24 @@ main > h1 {
     color: #4a755a;
     text-shadow: 1px 2px 7px #f1e6c9;
 }
-
 .card {
-    background: linear-gradient(120deg,#fffbe7 72%, #ede5d0 130%);
+    background: rgba(255,251,231,0.92);
+    backdrop-filter: blur(3px);
     border-radius: 22px;
-    box-shadow: 0 6px 36px rgba(186,163,81,0.13), 0 1.5px 7px #eedaa2;
+    box-shadow: 0 10px 32px rgba(186,163,81,0.13), 0 1.5px 7px #eedaa2;
     margin-bottom: 38px;
     padding: 33px 38px 28px 38px;
     position: relative;
-    border: 2.5px solid #eedaa2;
+    border: 2.5px solid #cfb784;
     z-index: 1;
     overflow: hidden;
-    transition: box-shadow .35s, border-color .35s;
+    transition: box-shadow .35s, border-color .35s, transform .3s;
 }
 .card:hover, .card:focus-within {
-    box-shadow: 0 10px 40px 0 rgba(175,152,62,0.18), 0 2px 14px #eedaa2;
+    box-shadow: 0 20px 40px rgba(186,163,81,0.21), 0 2px 14px #eedaa2;
     border-color: #b3a26b;
+    transform: translateY(-4px) scale(1.02);
 }
-
 .card-flex {
     display: flex;
     gap: 28px;
@@ -191,7 +252,6 @@ main > h1 {
     transform: translateY(-7px) scale(1.04);
     box-shadow: 0 8px 26px rgba(175,152,62,0.13), 0 1.5px 7px #eedaa2;
 }
-
 section h2 {
     color: #4a755a;
     border-left: 8px solid #eedaa2;
@@ -200,17 +260,14 @@ section h2 {
     font-size: 1.22em;
     letter-spacing: 0.5px;
 }
-
 section p, section ul, section ol {
     line-height: 1.6;
     margin: 10px 0;
     color: #422e0c;
 }
-
 section ul, section ol {
     padding-left: 24px;
 }
-
 img {
     display: block;
     margin: 17px auto 0 auto;
@@ -218,8 +275,6 @@ img {
     box-shadow: 0 3px 14px rgba(233,205,144,0.15);
     border: 2.5px solid #eedaa2;
 }
-
-/* Carousel Galeri */
 .carousel-gallery {
     position: relative;
     width: 100%;
@@ -234,7 +289,6 @@ img {
     flex-direction: column;
     align-items: center;
 }
-
 .carousel-track {
     display: flex;
     transition: transform .5s cubic-bezier(.4,0,.2,1);
@@ -242,7 +296,6 @@ img {
     height: 260px;
     align-items: center;
 }
-
 .carousel-track img {
     min-width: 100%;
     max-width: 100%;
@@ -252,14 +305,13 @@ img {
     border: none;
     background: #eee;
 }
-
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #eedaa2;
-    color: #4a755a;
-    border: none;
+    background: linear-gradient(145deg, #eedaa2 65%, #fffbe7 100%);
+    color: #b39c63;
+    border: 2px solid #cfb784;
     font-size: 2.2em;
     width: 45px;
     height: 45px;
@@ -275,8 +327,7 @@ img {
 }
 .carousel-btn.left { left: 18px; }
 .carousel-btn.right { right: 18px; }
-.carousel-btn:hover { background: #f5e4c1; color: #b3a26b; opacity: 1; }
-
+.carousel-btn:hover { background: #fffbe7; color: #b39c63; opacity: 1; border-color: #b39c63;}
 .carousel-indicators {
     display: flex;
     justify-content: center;
@@ -285,7 +336,6 @@ img {
     margin: 14px 0 10px 0;
     width: 100%;
 }
-
 .carousel-indicators .indicator {
     width: 12px; 
     height: 12px;
@@ -300,7 +350,6 @@ img {
     background: #b3a26b;
     opacity: 1;
 }
-
 @media (max-width: 900px) {
     .card-flex { flex-direction: column; align-items: center;}
     .card-inner { width: 98vw; max-width: 380px;}
@@ -383,7 +432,6 @@ aside {
     z-index: 1;
     position: relative;
 }
-
 aside h2 {
     margin-top: 0;
     color: #b3a26b;
@@ -392,7 +440,6 @@ aside h2 {
     border-bottom: 2px dashed #eedaa2;
     padding-bottom: 3px;
 }
-
 footer {
     background: #eedaa2;
     color: #4a755a;
@@ -406,167 +453,19 @@ footer {
     border-top: 1.2px solid #f3e3c3;
 }
 
-/* ====== STYLE PREMIUM TAMBAHAN (TARUH DI BAWAH, AKAN MENGOVERRIDE BAGIAN HEADER/NAV, LOGO, HIGHLIGHT, DLL) ====== */
-
-/* HEADER+LOGO UPGRADE */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: linear-gradient(90deg, #fffbe7 70%, #ede5d0 100%);
-    box-shadow: 0 3px 24px rgba(198,184,132,0.11);
-    border-bottom: 2px solid #f3e3c3;
-    padding: 0 0 20px 0;
-}
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 22px;
-    position: relative;
-}
-.logo-wrap {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    z-index: 1;
-    margin-left: 32px;
-}
-.logo {
-    width: 110px;
-    height: 110px;
-    margin-top: 0;
-    margin-bottom: 0;
-    border-radius: 100%;
-    background: #fff;
-    box-shadow: 0 12px 38px rgba(186,163,81,0.16), 0 1.5px 7px #eedaa2;
-    border: 3.5px solid #eedaa2;
-    padding: 8px;
-    transition: transform 0.32s cubic-bezier(.4,0,.2,1), box-shadow 0.32s;
-    will-change: transform;
-}
-.logo:hover {
-    transform: scale(1.09) rotate(-5deg);
-    box-shadow: 0 16px 50px rgba(186,163,81,0.22), 0 2px 14px #eedaa2;
-}
-.header-container h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6em;
-    font-weight: 700;
-    letter-spacing: 1.1px;
-    color: #b39c63;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-    z-index: 2;
-    text-shadow: 0 2px 10px #f3e3c3;
-    padding-right: 120px;
-}
-@media (max-width: 700px) {
-    .logo { width: 68px; height: 68px; padding: 4px;}
-    .logo-wrap { margin-left: 10px;}
-    .header-container h1 { font-size: 1.1em; padding-right: 60px;}
-    .header-container { padding-top: 10px;}
-}
-
-/* NAV sticky & highlight */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    background: linear-gradient(90deg, #fffbe7 70%, #ede5d0 100%);
-    box-shadow: 0 3px 18px rgba(186,163,81,0.11);
-    transition: box-shadow .3s;
-}
-nav.sticky-shadow {
-    box-shadow: 0 6px 26px rgba(186,163,81,0.17);
-}
-nav li a.active {
-    color: #b39c63;
-    background: #f9eee0;
-    border-color: #b39c63;
-    box-shadow: 0 2px 12px #eedaa255;
-    animation: navicon-shake 0.36s cubic-bezier(.2,.8,.4,1.3);
-}
-@keyframes navicon-shake {
-    0% { transform: scale(1.13) rotate(-8deg);}
-    20% { transform: scale(1.18) rotate(5deg);}
-    37% { transform: scale(1.15) rotate(-6deg);}
-    55% { transform: scale(1.12) rotate(3deg);}
-    100% { transform: scale(1.13) rotate(-8deg);}
-}
-
-/* ICON SUMBER FOTO */
-.sumber-icon {
-    color: #b39c63;
-    font-size: 1.2em;
-    vertical-align: middle;
-    margin-right: 7px;
-    margin-top: -2px;
-}
-
-/* PREMIUM SECTION DIVIDER */
+/* Premium Section Divider */
 section.card:not(:last-child) {
     border-bottom: 1.5px dashed #eedaa2;
     margin-bottom: 44px;
     padding-bottom: 23px;
 }
 
-/* SMOOTH SCROLL */
-html {
-    scroll-behavior: smooth;
-}
-
-/* UPGRADE FONT JUDUL */
+/* Font & smooth scroll */
 h1, h2 {
     font-family: 'Playfair Display', serif;
     letter-spacing: 1.2px;
     color: #b39c63;
 }
-
-/* CARD PREMIUM */
-.card {
-    background: rgba(255,251,231,0.92);
-    backdrop-filter: blur(3px);
-    border: 2px solid #cfb784;
-    box-shadow: 0 10px 32px rgba(186,163,81,0.13), 0 1.5px 7px #eedaa2;
-    transition: box-shadow .3s, border-color .3s, transform .3s;
-}
-.card:hover {
-    box-shadow: 0 20px 40px rgba(186,163,81,0.21);
-    border-color: #b39c63;
-    transform: translateY(-4px) scale(1.02);
-}
-
-/* CAROUSEL BUTTON PREMIUM */
-.carousel-btn {
-    background: linear-gradient(145deg, #eedaa2 65%, #fffbe7 100%);
-    color: #b39c63;
-    border: 2px solid #cfb784;
-}
-.carousel-btn:hover {
-    background: #fffbe7;
-    color: #b39c63;
-    border-color: #b39c63;
-}
-
-/* JAGA FADE-IN SUPAYA TIDAK NGILANG */
+html { scroll-behavior: smooth; }
 .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
 .fade-in.visible { opacity: 1 !important; transform: none !important; }
-/* Header sticky FULL (header + nav) */
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: linear-gradient(90deg, #fffbe7 70%, #ede5d0 100%);
-    box-shadow: 0 3px 24px rgba(198,184,132,0.11);
-    border-bottom: 2px solid #f3e3c3;
-    padding-bottom: 0;
-}
-/* Biar nav shadow muncul waktu discroll */
-nav.sticky-shadow {
-    box-shadow: 0 6px 26px rgba(186,163,81,0.17);
-}
