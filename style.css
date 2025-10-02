@@ -408,3 +408,35 @@ footer {
 .fade-in.visible { opacity: 1 !important; transform: none !important; }
 .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
 .fade-in.visible { opacity: 1 !important; transform: none !important; }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1.2px;
+  color: #b39c63;
+}
+
+.card {
+  background: rgba(255,251,231,0.92);
+  backdrop-filter: blur(3px);
+  border: 2px solid #cfb784;
+  box-shadow: 0 10px 32px rgba(186,163,81,0.13), 0 1.5px 7px #eedaa2;
+  transition: box-shadow .3s, border-color .3s, transform .3s;
+}
+.card:hover {
+  box-shadow: 0 20px 40px rgba(186,163,81,0.21);
+  border-color: #b39c63;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.carousel-btn {
+  background: linear-gradient(145deg, #eedaa2 65%, #fffbe7 100%);
+  color: #b39c63;
+  border: 2px solid #cfb784;
+}
+
+.carousel-btn:hover {
+  background: #fffbe7;
+  color: #b39c63;
+  border-color: #b39c63;
+}
