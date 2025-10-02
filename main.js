@@ -1,3 +1,12 @@
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
+}, { threshold: 0.13 });
+faders.forEach(f => observer.observe(f));
+
 // Carousel Galeri Foto aesthetic
 const gallery = document.querySelector('.carousel-gallery');
 if (gallery) {
@@ -32,7 +41,7 @@ if (gallery) {
         idx = (idx + 1) % images.length;
         updateGallery();
     };
-    // Swipe support (optional, biar bisa geser pakai tangan di HP)
+    // Swipe support (biar bisa geser pakai jari di HP)
     let startX = null;
     track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
     track.addEventListener('touchend', e => {
@@ -43,3 +52,24 @@ if (gallery) {
         startX = null;
     });
 }
+
+// Accordion (kalau masih ada)
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+  btn.onclick = function() {
+    const content = this.nextElementSibling;
+    content.classList.toggle('open');
+    if (content.classList.contains('open')) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = null;
+    }
+  }
+});
+
+// Scroll to Top Button
+const toTop = document.getElementById('toTop');
+window.onscroll = () => {
+  if (window.scrollY > 200) toTop.style.display = 'block';
+  else toTop.style.display = 'none';
+};
+toTop.onclick = () => { window.scrollTo({top: 0, behavior: 'smooth'}); };
